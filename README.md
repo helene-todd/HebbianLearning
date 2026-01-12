@@ -41,14 +41,14 @@ The initial conditions are generated randomly. After repeatedly simulating the n
 
 One can try explaining these behaviours - ignoring the stochastic term (as it is quite small), let us prove that $p$ and $-p$ are equilibrium points of the dynamics. First, note that:  
 
-$$\dot{\mathbf{p}} = -\mathbf{p} + \text{sign}(W\mathbf{p}) \Leftrightarrow \dot{p}_i = -p_i + \text{sign}((W\mathbf{p})_i) \ \forall i \in \{1, \ldots, 64\},$$  
+$$\dot{\mathbf{p}} = -\mathbf{p} + \text{sign}(W\mathbf{p}) \Leftrightarrow \dot{p}_i = -p_i + \text{sign}((W\mathbf{p})_i) \ \forall i \in \{1, \ldots, 64\},$$
 
 and therefore:  
 
-$\begin{align*} -p_i + \text{sign}((W\mathbf{p})_i) =& -p_i + \text{sign}\left( \sum_{j=1}^{64} W_{ij}p_j \right) = -p_i + \text{sign}\left( \sum_{j=1}^{64}\frac{1}{64} p_ip_jp_j \right) \\
+$\begin{aligned} -p_i + \text{sign}((W\mathbf{p})_i) =& -p_i + \text{sign}\left( \sum_{j=1}^{64} W_{ij}p_j \right) = -p_i + \text{sign}\left( \sum_{j=1}^{64}\frac{1}{64} p_ip_jp_j \right) \\
 &= -p_i + \text{sign}\left( \frac{p_i}{64} \sum_{j=1}^{64} p_jp_j \right) = -p_i + \text{sign}\left( \frac{p_i}{64} \sum_{j=1}^{64} 1 \right) \\
 &= p_i + \text{sign}\left( \frac{p_i}{64} \cdot 64 \right) = -p_i + \text{sign}(p_i) = 0.
-\end{align*}$  
+\end{aligned}$
   
 The same reasoning can be applied to $-\mathbf{p}.$ Therefore, $\mathbf{p}$ and $-\mathbf{p}$ are both equilibrium points. Furthermore, these two equilibria are stable (i.e. attractors); this property can be shown via the Lyapunov function.  
   
