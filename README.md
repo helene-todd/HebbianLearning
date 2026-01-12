@@ -5,14 +5,14 @@
 ## The Model
 Here, we construct a Hopfield network of $N=64$ neurons in continuous time, whose dynamics are gouverned by:  
 
-$$\dot{\mathbf{x}} = -\mathbf{x} + f(W\mathbf{x}) + \sigma \eta(t),$$  
+$$\dot{\mathbf{x}} = -\mathbf{x} + f(W\mathbf{x}) + \sigma \eta(t),$$
 
 where $\mathbf{x}$ is the vector of firing rates, $W$ a $N \times N$ weight matrix, $\eta(t)$ a white noise term with amplitude $\sigma=0.1$ and $f(x)=\text{sign}(x)$ the activation function. 
 
 ### Storing one pattern
 We start by storing a single pattern $\mathbf{p}$ in the Hopfield network. Here, the weight matrix is given by:  
 
-$$W = \frac{1}{N}\mathbf{p}\mathbf{p}^T,$$  
+$$W = \frac{1}{N}\mathbf{p}\mathbf{p}^T,$$
 
 where $\mathbf{p} = (p_1, \ldots, p_{64})$ is assumed to be a column vector. In what follows, we will map the $64-\text{dimensional}$ vector $\mathbf{p}$ into a $8 \times 8$ matrix.  
   
@@ -47,7 +47,7 @@ and therefore:
 
 $$\begin{aligned} -p_i + \text{sign}((W\mathbf{p})_i) =& -p_i + \text{sign}\left( \sum_{j=1}^{64} W_{ij}p_j \right) = -p_i + \text{sign}\left( \sum_{j=1}^{64}\frac{1}{64} p_ip_jp_j \right) \\
 &= -p_i + \text{sign}\left( \frac{p_i}{64} \sum_{j=1}^{64} p_jp_j \right) = -p_i + \text{sign}\left( \frac{p_i}{64} \sum_{j=1}^{64} 1 \right) \\
-&= p_i + \text{sign}\left( \frac{p_i}{64} \cdot 64 \right) = -p_i + \text{sign}(p_i) = 0.
+&= -p_i + \text{sign}\left( \frac{p_i}{64} \cdot 64 \right) = -p_i + \text{sign}(p_i) = 0.
 \end{aligned}$$
   
 The same reasoning can be applied to $-\mathbf{p}.$ Therefore, $\mathbf{p}$ and $-\mathbf{p}$ are both equilibrium points. Furthermore, these two equilibria are stable (i.e. attractors); this property can be shown via the Lyapunov function.  
@@ -148,7 +148,7 @@ From now on, all initial conditions are a pattern. Doing so will allow to better
 Most of the patterns seem to converge towards one of two different states that resemble, but are none of the patterns. An avalanche effect is indeed observed for at least three patterns.
 
 ## References
-<a id="1">[1]</a> 
+<a id="1" href="https://www.inference.org.uk/itprnn/book.pdf">[1]</a> 
 David J. C. MacKay (2003). 
 Information theory, inference, and
 learning algorithms.
