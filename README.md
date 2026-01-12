@@ -41,7 +41,7 @@ The initial conditions are generated randomly. After repeatedly simulating the n
 
 One can try explaining these behaviours - ignoring the stochastic term (as it is quite small), let us prove that $p$ and $-p$ are equilibrium points of the dynamics. First, note that:  
 
-$$\dot{\mathbf{p}} = -\mathbf{p} + \text{sign}(W\mathbf{p}) \Leftrightarrow \dot{p}_i = -p_i + \text{sign}((W\mathbf{p})_i) \ \forall i \in \{1, \ldots, 64\},$$
+$$\dot{\mathbf{p}} = -\mathbf{p} + \text{sign}(W\mathbf{p}) \Leftrightarrow \dot{p}_i = -p_i + \text{sign}((W\mathbf{p})_i) \ \forall i \in \lbrace 1, \ldots, 64\rbrace,$$
 
 and therefore:  
 
