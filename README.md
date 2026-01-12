@@ -3,14 +3,17 @@
 *This small project was originally part of a homework assignment that I worked on during my master's degree.*
   
 ## The Model
-Here, we construct a Hopfield network of $N=64$ neurons in continuous time, whose dynamics are gouverned by:
-$$\dot{\mathbf{x}} = -\mathbf{x} + f(W\mathbf{x}) + \sigma \eta(t),$$
+Here, we construct a Hopfield network of $N=64$ neurons in continuous time, whose dynamics are gouverned by:  
+
+$$\dot{\mathbf{x}} = -\mathbf{x} + f(W\mathbf{x}) + \sigma \eta(t),$$  
+
 where $\mathbf{x}$ is the vector of firing rates, $W$ a $N \times N$ weight matrix, $\eta(t)$ a white noise term with amplitude $\sigma=0.1$ and $f(x)=\text{sign}(x)$ the activation function. 
 
 ### Storing one pattern
 We start by storing a single pattern $\mathbf{p}$ in the Hopfield network. Here, the weight matrix is given by:  
 
-$$W = \frac{1}{N}\mathbf{p}\mathbf{p}^T,$$
+$$W = \frac{1}{N}\mathbf{p}\mathbf{p}^T,$$  
+
 where $\mathbf{p} = (p_1, \ldots, p_{64})$ is assumed to be a column vector. In what follows, we will map the $64-\text{dimensional}$ vector $\mathbf{p}$ into a $8 \times 8$ matrix.  
   
 The pattern $\mathbf{p}$ we wish to store is the following:  
@@ -38,8 +41,10 @@ The initial conditions are generated randomly. After repeatedly simulating the n
 
 One can try explaining these behaviours - ignoring the stochastic term (as it is quite small), let us prove that $p$ and $-p$ are equilibrium points of the dynamics. First, note that:  
 
-$$\dot{\mathbf{p}} = -\mathbf{p} + \text{sign}(W\mathbf{p}) \Leftrightarrow \dot{p}_i = -p_i + \text{sign}((W\mathbf{p})_i) \ \forall i \in \{1, \ldots, 64\},$$
-and therefore:
+$$\dot{\mathbf{p}} = -\mathbf{p} + \text{sign}(W\mathbf{p}) \Leftrightarrow \dot{p}_i = -p_i + \text{sign}((W\mathbf{p})_i) \ \forall i \in \{1, \ldots, 64\},$$  
+
+and therefore:  
+
 $\begin{align*} -p_i + \text{sign}((W\mathbf{p})_i) =& -p_i + \text{sign}\left( \sum_{j=1}^{64} W_{ij}p_j \right) = -p_i + \text{sign}\left( \sum_{j=1}^{64}\frac{1}{64} p_ip_jp_j \right) \\
 &= -p_i + \text{sign}\left( \frac{p_i}{64} \sum_{j=1}^{64} p_jp_j \right) = -p_i + \text{sign}\left( \frac{p_i}{64} \sum_{j=1}^{64} 1 \right) \\
 &= p_i + \text{sign}\left( \frac{p_i}{64} \cdot 64 \right) = -p_i + \text{sign}(p_i) = 0.
