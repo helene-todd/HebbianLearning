@@ -73,7 +73,8 @@ As previosuly, we will simulate the network over time: we observe that the netwo
   
 
 ### Maximum storage capacity
-When storing $M$ patterns, the weight vector becomes:
+When storing $M$ patterns, the weight vector becomes:  
+
 $$W = \frac{1}{N} \sum_{i=1}^M \mathbf{p}_i\mathbf{p}_i^T.$$
   
 We would like to know more about the maximum number of patterns that can be stored. In theory, if one were to store approximately $0.18N$ patterns [[1]](#1) in our network and start at a given pattern, there is a small chance that part of the pattern will be distorted after the first iteration, potentially leading to an avalanche effect.  
